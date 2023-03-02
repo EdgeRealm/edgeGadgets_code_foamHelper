@@ -1,5 +1,5 @@
 {
-    "name": "edgedendronhelper",
+    "name": "Edge-Dendron-Helper",
     "version": "1.0.0",
     "description": "Dendron helper that syncs new daily notes to summary files (Res, Triv and Meet)",
     "main": "./out/extension.js",
@@ -31,5 +31,7 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/EdgeRealm/edgeGadgets_codeDendronHelper.git"
-    }
+    },
+    "publisher": "edgeyyzhang"
+
 }

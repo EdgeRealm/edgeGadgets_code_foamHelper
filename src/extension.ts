@@ -45,7 +45,8 @@ export function activate(context: vscode.ExtensionContext) {
                     fs.appendFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.meet.md', str_write+'\n\n');
                 }
             }
-            
+
+            vscode.window.showInformationMessage('Sync Succeeded!');      
     }}
     let command = vscode.commands.registerCommand(
         "edgeDH.syncDaily",
