@@ -1,0 +1,32 @@
+{
+  "name": "edgedendronhelper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./out/extension.js",
+  "scripts": {
+    "watch": "tsc -watch -p ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/vscode": "^1.46.0",
+    "typescript": "^3.9.5"
+  },
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "activationEvents": [
+    "onCommand:edgeDH.syncDaily"
+  ],
+  "contributes": {
+    "commands": {
+      "command": "edgeDH.syncDaily",
+      "title": "EdgeDH: Sync Daily to Summary Files"
+    }
+  },
+  "dependencies": {
+    "@types/node": "^16.0.0"
+  }
+}
