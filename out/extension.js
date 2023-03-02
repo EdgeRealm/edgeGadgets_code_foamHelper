@@ -32,28 +32,55 @@ function activate(context) {
             let name_cur = doc_cur.fileName;
             let text_cur = doc_cur.getText();
             let base_cur = name_cur.substring(name_cur.lastIndexOf("/") + 1, name_cur.length);
+            // Write Research
             if (text_cur.includes('### Res_TBD\n- ')) {
                 let str_write = '![[' + base_cur + '#Res_TBD]]';
                 let fs = require('fs');
-                let text_res = fs.readFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.res.md', 'utf8');
-                if (!text_res.includes(str_write)) {
+                let file_res = fs.readFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.res.md', 'utf8');
+                let text_res = file_res.split("---\n")[2].split("\n\n").slice(0, -1);
+                if (!text_res.includes(str_write) && str_write > text_res[text_res.length - 1]) {
                     fs.appendFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.res.md', str_write + '\n\n');
                 }
+                else if (!text_res.includes(str_write)) {
+                    let head_res = "---\n" + file_res.split("---\n")[1] + "---\n";
+                    text_res.push(str_write);
+                    text_res.sort();
+                    let final = head_res + text_res.join("\n\n") + "\n\n";
+                    fs.writeFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.res.md', final);
+                }
             }
+            // Write Triviality
             if (text_cur.includes('### Triv_TBD\n- ')) {
                 let str_write = '![[' + base_cur + '#Triv_TBD]]';
                 let fs = require('fs');
-                let text_res = fs.readFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.triv.md', 'utf8');
-                if (!text_res.includes(str_write)) {
+                let file_res = fs.readFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.triv.md', 'utf8');
+                let text_res = file_res.split("---\n")[2].split("\n\n").slice(0, -1);
+                if (!text_res.includes(str_write) && str_write > text_res[text_res.length - 1]) {
                     fs.appendFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.triv.md', str_write + '\n\n');
                 }
+                else if (!text_res.includes(str_write)) {
+                    let head_res = "---\n" + file_res.split("---\n")[1] + "---\n";
+                    text_res.push(str_write);
+                    text_res.sort();
+                    let final = head_res + text_res.join("\n\n") + "\n\n";
+                    fs.writeFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.triv.md', final);
+                }
             }
+            // Write Meeting
             if (text_cur.includes('### Meet_TBD\n- ')) {
                 let str_write = '![[' + base_cur + '#Meet_TBD]]';
                 let fs = require('fs');
-                let text_res = fs.readFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.meet.md', 'utf8');
-                if (!text_res.includes(str_write)) {
+                let file_res = fs.readFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.meet.md', 'utf8');
+                let text_res = file_res.split("---\n")[2].split("\n\n").slice(0, -1);
+                if (!text_res.includes(str_write) && str_write > text_res[text_res.length - 1]) {
                     fs.appendFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.meet.md', str_write + '\n\n');
+                }
+                else if (!text_res.includes(str_write)) {
+                    let head_res = "---\n" + file_res.split("---\n")[1] + "---\n";
+                    text_res.push(str_write);
+                    text_res.sort();
+                    let final = head_res + text_res.join("\n\n") + "\n\n";
+                    fs.writeFileSync('/Users/edge/Documents/EdgeExplore/98_Notes/notes/daily.meet.md', final);
                 }
             }
             vscode.window.showInformationMessage('Sync Succeeded!');
