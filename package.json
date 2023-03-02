@@ -1,13 +1,13 @@
 {
     "name": "Edge-Dendron-Helper",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Dendron helper that syncs new daily notes to summary files (Res, Triv and Meet)",
     "main": "./out/extension.js",
     "engines": {
         "vscode": "^1.46.0"
     },
     "scripts": {
-        "compile": "npx tsc",    
+        "compile": "npx tsc",
         "watch": "tsc -watch -p ./",
         "test": "echo \"So far so good!\""
     },
@@ -21,8 +21,8 @@
     ],
     "contributes": {
         "commands": {
-        "command": "edgeDH.syncDaily",
-        "title": "EdgeDH: Sync Daily to Summary Files"
+            "command": "edgeDH.syncDaily",
+            "title": "EdgeDH: Sync Daily to Summary Files"
         }
     },
     "dependencies": {
@@ -33,5 +33,4 @@
         "url": "https://github.com/EdgeRealm/edgeGadgets_codeDendronHelper.git"
     },
     "publisher": "edgeyyzhang"
-
 }
