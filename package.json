@@ -1,32 +1,35 @@
 {
-  "name": "edgedendronhelper",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./out/extension.js",
-  "scripts": {
-    "watch": "tsc -watch -p ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/vscode": "^1.46.0",
-    "typescript": "^3.9.5"
-  },
-  "engines": {
-    "vscode": "^1.46.0"
-  },
-  "activationEvents": [
-    "onCommand:edgeDH.syncDaily"
-  ],
-  "contributes": {
-    "commands": {
-      "command": "edgeDH.syncDaily",
-      "title": "EdgeDH: Sync Daily to Summary Files"
+    "name": "edgedendronhelper",
+    "version": "1.0.0",
+    "description": "Dendron helper that syncs new daily notes to summary files (Res, Triv and Meet)",
+    "main": "./out/extension.js",
+    "engines": {
+        "vscode": "^1.46.0"
+    },
+    "scripts": {
+        "compile": "npx tsc",    
+        "watch": "tsc -watch -p ./",
+        "test": "echo \"So far so good!\""
+    },
+    "author": "edgeyyzhang",
+    "devDependencies": {
+        "@types/vscode": "^1.46.0",
+        "typescript": "^3.9.5"
+    },
+    "activationEvents": [
+        "onCommand:edgeDH.syncDaily"
+    ],
+    "contributes": {
+        "commands": {
+        "command": "edgeDH.syncDaily",
+        "title": "EdgeDH: Sync Daily to Summary Files"
+        }
+    },
+    "dependencies": {
+        "@types/node": "^16.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EdgeRealm/edgeGadgets_codeDendronHelper.git"
     }
-  },
-  "dependencies": {
-    "@types/node": "^16.0.0"
-  }
 }
