@@ -30,7 +30,21 @@
                 "command": "edgeDH.removeDaily",
                 "title": "EdgeDH: Remove Daily from Summary Files"
             }
-        ]
+        ],
+        "configuration": {
+			"type": "object",
+			"title": "Edge Dendron Helper",
+			"properties": {
+				"edgeDH.dailySections": {
+					"type": [
+						"string"
+					],
+					"default": "Res_TBD, Triv_TBD, Meet_TBD",
+					"description": "Section names separated by ', '.",
+					"scope": "resource"
+				}
+			}
+		}
     },
     "dependencies": {
         "@types/node": "^16.0.0"
