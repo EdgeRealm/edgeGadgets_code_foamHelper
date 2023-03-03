@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
             let base_cur = name_cur.substring(name_cur.lastIndexOf("/")+1, name_cur.length);
 
             // Write Research
-            if (text_cur.includes('### Res_TBD\n- ')){
+            if (/### Res_TBD\n./.test(text_cur)){
                 let str_write = '![['+base_cur+'#Res_TBD]]'
 
                 let fs = require('fs');
@@ -34,7 +34,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
             // Write Triviality
-            if (text_cur.includes('### Triv_TBD\n- ')){
+            if (/### Triv_TBD\n./.test(text_cur)){
                 let str_write = '![['+base_cur+'#Triv_TBD]]'
 
                 let fs = require('fs');
@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
 
             // Write Meeting
-            if (text_cur.includes('### Meet_TBD\n- ')){
+            if (/### Meet_TBD\n./.test(text_cur)){
                 let str_write = '![['+base_cur+'#Meet_TBD]]'
 
                 let fs = require('fs');
