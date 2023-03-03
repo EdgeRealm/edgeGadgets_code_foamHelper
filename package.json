@@ -17,13 +17,17 @@
         "typescript": "^3.9.5"
     },
     "activationEvents": [
-        "onCommand:edgeDH.syncDaily"
+        "onCommand:edgeDH.syncDaily",
+        "onCommand:edgeDH.removeDaily"
     ],
     "contributes": {
-        "commands": {
+        "commands": [{
             "command": "edgeDH.syncDaily",
             "title": "EdgeDH: Sync Daily to Summary Files"
-        }
+        }, {
+            "command": "edgeDH.removeDaily",
+            "title": "EdgeDH: Remove Daily from Summary Files"
+        }]
     },
     "dependencies": {
         "@types/node": "^16.0.0"
