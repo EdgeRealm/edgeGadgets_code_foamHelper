@@ -1,6 +1,6 @@
 {
     "name": "Edge-Dendron-Helper",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Dendron helper that syncs new daily notes to summary files (Res, Triv and Meet)",
     "main": "./out/extension.js",
     "engines": {
