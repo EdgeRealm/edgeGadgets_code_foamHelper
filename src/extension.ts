@@ -13,7 +13,6 @@ export function activate(context: vscode.ExtensionContext) {
             let config = vscode.workspace.getConfiguration('edgeDH', resource);
             let secconf = config.get('dailySections');
             if (typeof secconf === 'string') {
-                vscode.window.showInformationMessage(secconf);      
                 let sections = secconf.split(", ")
         
                 // Get Current Document Text
@@ -67,7 +66,6 @@ export function activate(context: vscode.ExtensionContext) {
             let secconf = config.get('dailySections');
             
             if (typeof secconf === 'string') {
-                vscode.window.showInformationMessage(secconf);      
                 let sections = secconf.split(", ")
 
                 // Get the document text
