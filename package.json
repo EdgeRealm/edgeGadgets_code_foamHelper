@@ -1,7 +1,7 @@
 {
-    "name": "Edge-Dendron-Helper",
+    "name": "Edge-Foam-Helper",
     "version": "1.4.1",
-    "description": "Dendron helper that syncs new daily notes to summary files (Res, Triv and Meet)",
+    "description": "Foam helper that syncs new daily notes to summary files (Res, Triv and Meet)",
     "main": "./out/extension.js",
     "engines": {
         "vscode": "^1.46.0"
@@ -33,13 +33,13 @@
         ],
         "configuration": {
             "type": "object",
-            "title": "Edge Dendron Helper",
+            "title": "Edge Foam Helper",
             "properties": {
                 "edgeDH.dailySections": {
                     "type": [
                         "string"
                     ],
-                    "default": "Res_TBD, Triv_TBD, Meet_TBD",
+                    "default": "Res TBD, Triv TBD, Meet TBD",
                     "description": "Section names separated by ', '.",
                     "scope": "resource"
                 }
