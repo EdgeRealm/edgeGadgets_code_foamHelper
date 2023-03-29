@@ -1,6 +1,6 @@
 {
     "name": "Edge-Foam-Helper",
-    "version": "1.4.1",
+    "version": "1.4.3",
     "description": "Foam helper that syncs new daily notes to summary files (Res, Triv and Meet)",
     "main": "./out/extension.js",
     "engines": {
