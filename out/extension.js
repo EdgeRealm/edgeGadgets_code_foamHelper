@@ -41,9 +41,7 @@ function activate(context) {
                 let dir_cur = name_cur.substring(0, name_cur.lastIndexOf("/") + 1);
                 for (var sec of sections) {
                     // Write One Section            
-                    vscode.window.showInformationMessage(sec + " (" + base_cur + ")\n.");
                     if (RegExp(sec + " \\(" + base_cur + "\\)\n.").test(text_cur)) {
-                        vscode.window.showInformationMessage(base_cur);
                         let str_write = '![[' + base_cur + '#' + sec + ' (' + base_cur + ')' + ']]';
                         let file_write = dir_cur + "../journal." + sec.toLowerCase().replace(' ', '-') + '.md';
                         let fs = require('fs');
@@ -83,14 +81,16 @@ function activate(context) {
                 // Get the document text
                 let name_cur = doc_cur.fileName;
                 let base_cur = name_cur.substring(name_cur.lastIndexOf("/") + 1, name_cur.length);
+                base_cur = base_cur.substring(0, base_cur.lastIndexOf('.'));
                 let dir_cur = name_cur.substring(0, name_cur.lastIndexOf("/") + 1);
                 for (var sec of sections) {
                     // Remove from One Section
-                    let str_rmv = '![[' + base_cur + '#' + sec + ']]\n\n';
+                    let str_rmv = '![[' + base_cur + '#' + sec + ' (' + base_cur + ')' + ']]\n\n';
+                    let file_rmv = dir_cur + "../journal." + sec.toLowerCase().replace(' ', '-') + '.md';
                     let fs = require('fs');
-                    let file_res = fs.readFileSync(dir_cur + 'daily.' + sec.toLowerCase() + '.md', 'utf8');
+                    let file_res = fs.readFileSync(file_rmv, 'utf8');
                     file_res = file_res.replace(str_rmv, '');
-                    fs.writeFileSync(dir_cur + 'daily.' + sec.toLowerCase() + '.md', file_res);
+                    fs.writeFileSync(file_rmv, file_res);
                 }
                 vscode.window.showInformationMessage('Successfully Removed Daily!');
             }
