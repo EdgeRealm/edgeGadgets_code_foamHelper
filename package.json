@@ -1,6 +1,6 @@
 {
     "name": "Edge-Foam-Helper",
-    "version": "1.4.2",
+    "version": "1.4.1",
     "description": "Foam helper that syncs new daily notes to summary files (Res, Triv and Meet)",
     "main": "./out/extension.js",
     "engines": {
@@ -17,25 +17,25 @@
         "typescript": "^3.9.5"
     },
     "activationEvents": [
-        "onCommand:edgeDH.syncDaily",
-        "onCommand:edgeDH.removeDaily"
+        "onCommand:edgeFH.syncDaily",
+        "onCommand:edgeFH.removeDaily"
     ],
     "contributes": {
         "commands": [
             {
-                "command": "edgeDH.syncDaily",
-                "title": "EdgeDH: Sync Daily to Summary Files"
+                "command": "edgeFH.syncDaily",
+                "title": "edgeFH: Sync Daily to Summary Files"
             },
             {
-                "command": "edgeDH.removeDaily",
-                "title": "EdgeDH: Remove Daily from Summary Files"
+                "command": "edgeFH.removeDaily",
+                "title": "edgeFH: Remove Daily from Summary Files"
             }
         ],
         "configuration": {
             "type": "object",
             "title": "Edge Foam Helper",
             "properties": {
-                "edgeDH.dailySections": {
+                "edgeFH.dailySections": {
                     "type": [
                         "string"
                     ],
