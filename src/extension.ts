@@ -89,11 +89,13 @@ export function activate(context: vscode.ExtensionContext) {
                 for (var sec of sections){
                     // Remove from One Section
                     let str_rmv = '![['+base_cur+'#'+sec+' ('+base_cur+')'+']]\n\n'
+                    let str_rmv_commented = '<!-- ![['+base_cur+'#'+sec+' ('+base_cur+')'+']] -->\n\n'
                     let file_rmv = dir_cur+"../journal."+sec.toLowerCase().replace(' ','-')+'.md'
 
                     let fs = require('fs');
                     let file_res = fs.readFileSync(file_rmv, 'utf8')
                     file_res = file_res.replace(str_rmv, '')
+                    file_res = file_res.replace(str_rmv_commented, '')
                     fs.writeFileSync(file_rmv, file_res);   
                 }
                 
