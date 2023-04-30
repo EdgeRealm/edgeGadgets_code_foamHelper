@@ -50,7 +50,7 @@ export function activate(context: vscode.ExtensionContext) {
                             var id = text_uncommented.indexOf(str_write)
                             text_res.splice(id, 0, str_write)                            
                             let final = text_res.join("\n\n") + "\n\n"
-                            fs.writeFileSync(file_write, final);       
+                            fs.writeFileSync(file_write, final);
                         }
                     }
                 }
