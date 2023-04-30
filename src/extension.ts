@@ -26,15 +26,17 @@ export function activate(context: vscode.ExtensionContext) {
                     // Write One Section            
                     if (RegExp(sec+" \\("+base_cur+"\\)\n.").test(text_cur)){
                         let str_write = '![['+base_cur+'#'+sec+' ('+base_cur+')'+']]'
+                        let str_test = new RegExp('\\!\\[\\['+base_cur+'\\#'+sec+' \\('+base_cur+'\\)'+'\\]\\]')
                         let file_write = dir_cur+"../journal."+sec.toLowerCase().replace(' ','-')+'.md'
 
                         let fs = require('fs');
                         let file_res = fs.readFileSync(file_write, 'utf8')
                         let text_res = file_res.split("\n\n").slice(0,-1)
-
-                        if (!text_res.includes(str_write) && str_write>text_res[text_res.length-1]){
+                        
+                        var flag = !text_res.some((e:any)=>str_test.test(e))
+                        if (flag && str_write>text_res[text_res.length-1]){
                             fs.appendFileSync(file_write, str_write+'\n\n');
-                        } else if (!text_res.includes(str_write)){
+                        } else if (flag){
                             text_res.push(str_write)
                             text_res.sort()
                             let final = text_res.join("\n\n") + "\n\n"
