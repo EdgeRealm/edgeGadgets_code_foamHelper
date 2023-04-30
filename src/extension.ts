@@ -33,18 +33,27 @@ export function activate(context: vscode.ExtensionContext) {
                         let file_res = fs.readFileSync(file_write, 'utf8')
                         let text_res = file_res.split("\n\n").slice(0,-1)
                         
+                        let item_last = text_res[text_res.length-1].replace('<!-- ','').replace(' -->','')
                         var flag = !text_res.some((e:any)=>str_test.test(e))
-                        if (flag && str_write>text_res[text_res.length-1]){
+                        if (flag && str_write>item_last){
                             fs.appendFileSync(file_write, str_write+'\n\n');
-                        } else if (flag){
-                            text_res.push(str_write)
-                            text_res.sort()
+                        } else if (flag) {  // If Sorting Needed
+                            let flag_comment = []
+                            let text_uncommented = []
+                            for (let i = 0; i < text_res.length; i++) {
+                                text_uncommented[i] = text_res[i].replace('<!-- ','').replace(' -->','');
+                                flag_comment[i] = text_res[i].includes('<!-- ') || text_res[i].includes(' -->')
+                            }
+                            text_uncommented.push(str_write)
+                            text_uncommented.sort()
+
+                            var id = text_uncommented.indexOf(str_write)
+                            text_res.splice(id, 0, str_write)                            
                             let final = text_res.join("\n\n") + "\n\n"
-                            fs.writeFileSync(file_write, final);   
+                            fs.writeFileSync(file_write, final);       
                         }
                     }
                 }
-
                 vscode.window.showInformationMessage('Successfully Synced Daily!');      
             } else {
                 console.log('Unexpected error');
